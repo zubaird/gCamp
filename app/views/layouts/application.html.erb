@@ -8,8 +8,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <%= yield %>
-</div>
+
+  <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <%= link_to "Home", root_path, :class => "navbar-brand"%>
+    </nav>
+    <%= yield %>
+    <hr/>
+    <footer>
+      <div class="navbar">
+        <%= link_to "About", about_path %> | <%= link_to "Terms", terms_path %>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
