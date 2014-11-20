@@ -2,9 +2,16 @@ class StaticController < ApplicationController
 
   def home
     @quotes = [
-"'Failure is not an option. Everyone has to Succeed' - Arnold Schwarzenegger",
-"'Your time is limited, so don't waste it living someone else's life.' - Steve Jobs",
-"'Better Ingredients, Better Pizza' - Papa John",
+  [
+  "'Failure is not an option. Everyone has to Succeed'",
+  "'Your time is limited, so don't waste it living someone else's life.'",
+  "'Better Ingredients, Better Pizza'",
+  ],
+  [
+  " - Arnold Schwarzenegger",
+  " - Steve Jobs",
+  " - Papa John",
+  ]
 ]
   end
 

@@ -42,7 +42,9 @@
   </div>
 </div>
 <ul>
-  <% @quotes.each do |quote| %>
-  <li><%= quote %></li>
-  <% end %>
-</ul> 
+  <% @quotes.transpose.each do |x| %>
+  <li><%= x[0] %></li>
+  <%= x[1] %>
+<% end %>
+
+</ul>
