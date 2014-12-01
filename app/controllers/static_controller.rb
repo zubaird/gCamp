@@ -1,5 +1,7 @@
 class StaticController < ApplicationController
 
+  require './lib/assets/faq.rb'
+
   def home
     @quotes = [
   [
@@ -22,5 +24,10 @@ class StaticController < ApplicationController
   def about
 
   end
+
+  def faq
+      @faq_class = Faq.new
+  end
+
 
 end
