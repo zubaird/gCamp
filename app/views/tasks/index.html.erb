@@ -1,0 +1,34 @@
+<div class="row-fluid">
+  <button class="btn-primary pull-right"><%= link_to 'New Task', new_task_path, class:"btn-primary" %></button>
+  <div class="page-header">
+    <h1>Tasks</h1>
+  </div>
+</div>
+<div class="row-fluid">
+  <table>
+    <thead>
+      <tr>
+        <th class="col-md-3">Description</th>
+        <th class="col-md-3">Due Date</th>
+        <th class="col-md-3">Completed?</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tasks.each do |task| %>
+      <tr>
+        <td class="col-md-3"><%= task.description %></td>
+        <td class="col-md-3"><%= task.due_date %></td>
+        <td class="col-md-3"><%= task.completed %></td>
+        <div class="btn-group btn-group-* pull-right" role="group">
+          <td class="col-md-3">
+            <button class="btn-success"><%= link_to 'Show', task, class:"btn-success" %></button>
+            <button class="btn-primary"><%= link_to 'Edit', edit_task_path(task), class:"btn-primary" %></button>
+            <button class="btn-danger"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn-danger" %></button>
+          </td>
+        </div>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

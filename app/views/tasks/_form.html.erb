@@ -1,0 +1,38 @@
+<%= form_for @task, :html =>{class:"form-horizontal"} do |f| %>
+<% if @task.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+  <ul>
+    <% @task.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <%= f.label :description, class:"col-sm-1 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :description %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :due_date, class:"col-sm-1 control-label"  %>
+  <div class="col-sm-10">
+    <%= f.date_field :due_date %>
+  </div>
+</div>
+<% if Task.exists?(@task) %>
+<div class="form-group">
+  <%= f.label :completed, class:"col-sm-1 control-label"  %>
+  <div class="col-sm-10">
+    <%= f.check_box :completed %>
+  </div>
+</div>
+<% end %>
+<div class="actions col-md-offset-1">
+  <%= f.submit class:"btn btn-primary"%>
+  <button name="cancel"><%= link_to 'Cancel', tasks_path %></button>
+</div>
+<% end %>

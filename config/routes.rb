@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :tasks
+  resources :users
+
   root 'static#home'
 
   get 'about' => "static#about"
