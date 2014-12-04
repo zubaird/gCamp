@@ -52,10 +52,13 @@
     </div>
   </div>
 </div>
-<ul>
-  <% @quotes.transpose.each do |x| %>
-  <li><%= x[0] %></li>
-  <%= x[1] %>
+<blockquote>
+  <% @quotes.transpose.each do |quote| %>
+  <p>
+    <%= quote[0] %>
+  </p>
+  <p>
+    <em><%= quote[1] %></em>
+  </p>
   <% end %>
-
-</ul>
+</blockquote>
