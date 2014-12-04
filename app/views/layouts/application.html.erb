@@ -3,32 +3,38 @@
 <head>
   <title>GCamp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <%= link_to "gCamp", root_path, :class => "navbar-brand col-md-offset-1"%>
+  <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to "gCamp", root_path, :class => "navbar-brand"%>
+      </div>
+    </div>
   </nav>
 
-  <div class="container">
   <div class="row">
     <% if notice %>
     <p id="notice" class="alert alert-success col-md-5"><%= notice %></p>
     <% end %>
   </div>
-    <div class="row">
-      <%= yield %>
-    </div>
-    <hr/>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  <hr/>
+
+  <div class="container">
     <footer>
       <div class="navbar">
         <%= link_to "About", about_path %> | <%= link_to "Terms", terms_path %> | <%= link_to "Tasks", tasks_path %> | <%= link_to "FAQ", faq_path %>
       </div>
     </footer>
   </div>
+
 </body>
 </html>
