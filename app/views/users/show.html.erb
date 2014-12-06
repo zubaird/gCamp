@@ -1,0 +1,22 @@
+<table>
+  <tbody>
+    <tr>
+      <dl class="dl-horizontal">
+        <dt>First name</dt>
+        <dd><%= @user.first_name %></dd>
+        <dt>Last name</dt>
+        <dd><%= @user.last_name %></dd>
+        <dt>Email</dt>
+        <%= mail_to @user.emails do %>
+        <dd><%= @user.emails %></dd>
+        <% end %>
+      </dl>
+      <div class="btn-group btn-group-* pull-right" role="group">
+        <td class="col-md-3">
+          <button ><%= link_to 'Edit', edit_user_path(@user) %></button>
+          <button ><%= link_to 'Back', users_path %></button>
+        </td>
+      </div>
+    </tr>
+  </tbody>
+</table>

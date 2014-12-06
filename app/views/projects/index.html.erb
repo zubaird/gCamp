@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>
+        Project Name:
+      </th>
+      <th>
+
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+    <tr>
+      <td>
+        <%= project.name %>
+      </td>
+      <td>
+        <%= link_to "Show", project_path(project) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+  <div class="pull-right">
+    <button name="btn-primary"><%= link_to "Create", new_project_path %></button>
+  </div>
+</table>

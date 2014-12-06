@@ -1,16 +1,38 @@
 <h1>Edit User</h1>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, html: { class: "form-horizontal"} do |f| %>
 
-<%= f.label :first_name %>
-<%= f.text_field :first_name %>
+<div class="form-group">
+  <%= f.label :first_name, class: "col-xs-2" %>
+  <div class="col-sm-6">
+    <%= f.text_field :first_name, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :last_name, class: "col-xs-2" %>
+  <div class="col-sm-6">
+    <%= f.text_field :last_name, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :emails, class: "col-xs-2" %>
+  <div class="col-sm-6">
+    <%= f.email_field :emails, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-10 col-md-offset-2">
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to 'cancel', users_path, class: "btn btn-default" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-6 col-md-offset-2 well">
+    <button class="btn-danger btn-lg col-md-4 col-md-offset-4"><%= link_to 'Delete User', @user, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn-danger" %></button>
+  </div>
+</div>
 
-<%= f.label :last_name %>
-<%= f.text_field :last_name %>
 
-<%= f.label :emails %>
-<%= f.text_field :emails %>
 
-<%= f.submit %>
 
 <% end %>
