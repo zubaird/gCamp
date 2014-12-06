@@ -1,27 +1,22 @@
-<table>
-  <thead>
-    <tr>
-      <th>
-        Project Name:
-      </th>
-      <th>
-
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @projects.each do |project| %>
-    <tr>
-      <td>
-        <%= project.name %>
-      </td>
-      <td>
-        <%= link_to "Show", project_path(project) %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-  <div class="pull-right">
-    <button name="btn-primary"><%= link_to "Create", new_project_path %></button>
+<div class="row-fluid">
+  <button class="btn-primary pull-right"><%= link_to 'New Project', new_project_path, class:"btn-primary" %></button>
+  <div class="page-header">
+    <h1>Projects</h1>
   </div>
-</table>
+</div>
+<div class="row-fluid">
+  <table>
+    <thead>
+      <tr>
+        <th class="col-md-3"><h2>Name</h2><hr></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+      <tr>
+        <td class="col-md-3"><h4><%= link_to project.name, project_path(project) %></h4><hr></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
