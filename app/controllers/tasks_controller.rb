@@ -5,6 +5,11 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+    @incomplete = "false"
+    if params[:incomplete] == "true"
+      @tasks = Task.where(completed: false )
+      @incomplete = "true"
+    end
   end
 
   # GET /tasks/1
@@ -64,13 +69,13 @@ class TasksController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def task_params
-      params.require(:task).permit(:description, :due_date, :completed)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def task_params
+    params.require(:task).permit(:description, :due_date, :completed)
+  end
 end

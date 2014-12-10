@@ -1,5 +1,13 @@
 <div class="row-fluid">
-  <button class="btn-primary pull-right"><%= link_to 'New Task', new_task_path, class:"btn-primary" %></button>
+  <div class="pull-right">
+
+    <% if @incomplete != "true" %>
+    All | <%= link_to "Incomplete", tasks_path(incomplete: "true") %>
+    <% else  %>
+    <%= link_to 'All', tasks_path %> | Incomplete
+    <% end %>
+    <button class="btn-primary pull-right"><%= link_to 'New Task', new_task_path, class:"btn-primary" %></button>
+  </div>
   <div class="page-header">
     <h1>Tasks</h1>
   </div>
